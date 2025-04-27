@@ -13,6 +13,13 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
 
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
+  raty.init();
+  return raty;
+}
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
@@ -25,3 +32,6 @@ $(document).on("ajax:success", ".favorite-btn", function(event, data) {
   $("#book_" + bookId).find(".favorites-count").html(favoritesCount);
   $("#book_" + bookId).find(".favorite-btn").replaceWith(data.favorite_button_html);
 });
+
+
+window.$ = window.jQuery = require('jquery');
