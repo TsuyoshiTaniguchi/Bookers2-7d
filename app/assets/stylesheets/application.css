@@ -18,3 +18,16 @@
   white-space: nowrap;
   display: inline-block;
 }
+
+.search-bars {
+  display: flex;
+  gap: 20px; /* 間隔を調整 */
+  align-items: center;
+  justify-content: center;
+}
+
+.search-form input,
+.search-form button {
+  height: 40px; /* 検索バーとボタンの高さを統一 */
+  line-height: 40px; /* ボタン内のテキストを中央揃え */
+}

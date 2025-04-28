@@ -1,4 +1,4 @@
-<div id="book_<%= book.id %>">
+<% if book.present? && book.id.present? %> <!-- book が nil でないことを確認 -->
   <% if book.favorited_by?(current_user) %>
     <%= link_to book_favorites_path(book), method: :delete, remote: true, class: "favorite-btn", style: "color: red;" do %>
       <i class="fas fa-heart" aria-hidden="true"></i>
@@ -10,4 +10,6 @@
       <span class="favorites-count"><%= book.favorites.count %></span>
     <% end %>
   <% end %>
-</div>
+<% else %>
+
+<% end %>

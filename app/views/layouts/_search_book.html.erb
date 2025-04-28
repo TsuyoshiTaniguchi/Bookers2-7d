@@ -1,0 +1,4 @@
+<%= form_with url: tag_search_books_path, local: true, method: :get, class: "d-flex" do |f| %>
+  <%= f.text_field :tag, class: "form-control me-2" %>
+  <%= f.submit "タグ検索", class: %>
+<% end %>

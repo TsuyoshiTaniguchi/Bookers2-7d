@@ -7,8 +7,12 @@
     <%= f.label :opinion %>
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
+  <div class="form-group">
+  <%= f.label :tags, "Tag" %>
+  <%= f.text_field :tags, class: 'form-control book_tags' %>
+  </div>
 
-  # starについての記述
+
   <% if book.id.nil? %>
     <div class="form-group" id="star">
       <%= f.label :star %>

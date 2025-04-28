@@ -6,10 +6,10 @@ class Book < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :ratings, dependent: :destroy  # ← `ratings` との関連付けを追加
 
-  
 
-  
-  
+  def tag_list
+    tags.present? ? tags.split(",") : []
+  end
 
 
   validates :title, presence: true
