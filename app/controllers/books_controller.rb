@@ -8,9 +8,20 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    case params[:sort]
+    when "new"
+      @books = Book.order(created_at: :desc)  # 新着順
+    when "rating"
+      @books = Book.order(Arel.sql("CAST(books.star AS FLOAT) DESC NULLS LAST"))
+
+
+    else
+      @books = Book.all  # デフォルトはすべて表示
+    end
+  
     @book = Book.new
   end
+  
 
   def create
     @book = Book.new(book_params)

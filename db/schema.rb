@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_04_27_072808) do
+ActiveRecord::Schema.define(version: 2025_04_28_015615) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 2025_04_27_072808) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_ratings_on_book_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -87,4 +95,5 @@ ActiveRecord::Schema.define(version: 2025_04_27_072808) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "ratings", "books"
 end
